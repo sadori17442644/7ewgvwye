@@ -88,6 +88,64 @@ namespace ConsoleApp4
             Console.WriteLine("Max: " + max);
             Console.WriteLine("Min: " + min);
             Console.WriteLine("Summa: " + sum);
+
+
+            
+            double balance = 0;
+            int choice;
+            double amount;
+            
+            do
+            {
+                Console.WriteLine("1. Deposit");
+                Console.WriteLine("2. Withdraw");
+                Console.WriteLine("3. Show Balance");
+                Console.WriteLine("4. Exit");
+                Console.Write("Select an action: ");
+                choice = Convert.ToInt32(Console.ReadLine());
+            
+                switch (choice)
+                {
+                    case 1:
+                        Console.Write("Enter deposit amount: ");
+                        amount = Convert.ToDouble(Console.ReadLine());
+                        balance += amount;
+                        Console.WriteLine($"Account credited. New balance: {balance}");
+                        Console.ReadKey();
+                        break;
+            
+                    case 2:
+                        Console.Write("Enter withdrawal amount: ");
+                        amount = Convert.ToDouble(Console.ReadLine());
+            
+                        if (amount > balance)
+                        {
+                            Console.WriteLine("Insufficient funds!");
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            balance -= amount;
+                            Console.WriteLine($"Funds withdrawn. New balance: {balance}");
+                            Console.ReadKey();
+                        }
+                        break;
+            
+                    case 3:
+                        Console.WriteLine($"Current balance: {balance}");
+                        Console.ReadKey();
+                        break;
+            
+                    case 4:
+                        Console.WriteLine("Goodbye!");
+                        break;
+            
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        Console.ReadKey();
+                        break;
+                }
+            } while (choice != 4);
         }
     }
 }
