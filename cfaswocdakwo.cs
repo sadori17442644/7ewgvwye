@@ -101,7 +101,7 @@ namespace ConsoleApp4
                 Console.WriteLine("2. Withdraw");
                 Console.WriteLine("3. Show Balance");
                 Console.WriteLine("4. Exit");
-                Console.Write("Select an action: ");
+                Console.Write("Make choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
             
                 switch (choice)
@@ -110,7 +110,7 @@ namespace ConsoleApp4
                         Console.Write("Enter deposit amount: ");
                         amount = Convert.ToDouble(Console.ReadLine());
                         balance += amount;
-                        Console.WriteLine($"Account credited. New balance: {balance}");
+                        Console.WriteLine($"New balance: {balance}");
                         Console.ReadKey();
                         break;
             
@@ -120,13 +120,13 @@ namespace ConsoleApp4
             
                         if (amount > balance)
                         {
-                            Console.WriteLine("Insufficient funds!");
+                            Console.WriteLine("Insufficient funds");
                             Console.ReadKey();
                         }
                         else
                         {
                             balance -= amount;
-                            Console.WriteLine($"Funds withdrawn. New balance: {balance}");
+                            Console.WriteLine($"New balance: {balance}");
                             Console.ReadKey();
                         }
                         break;
@@ -137,11 +137,11 @@ namespace ConsoleApp4
                         break;
             
                     case 4:
-                        Console.WriteLine("Goodbye!");
+                        Console.WriteLine("Exit");
                         break;
             
                     default:
-                        Console.WriteLine("Invalid choice. Please try again.");
+                        Console.WriteLine("Invalid choice");
                         Console.ReadKey();
                         break;
                 }
